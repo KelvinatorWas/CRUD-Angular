@@ -10,11 +10,11 @@ import { AnimalListComponent } from './animal-list/animal-list.component';
       <div class="brand-title">Angular CRUD</div>
     </header>
 
+    
     <section class="content">
-      <app-animal-list >
-
-      </app-animal-list>
+      <app-animal-list></app-animal-list>
     </section>
+    
   </main>
   `,
   styleUrls: [

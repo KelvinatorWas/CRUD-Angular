@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Animal } from '../animal';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AnimalService {
+export class DataService {
   protected dbUrl = "http://localhost:3004";
-
-  protected animalsList: Animal[] = [];
 
   constructor(private http:HttpClient) { }
 
-  getAllAnimals():Observable<Animal[]> {
-    console.log(this.animalsList)
-    return this.http.get<Animal[]>(`${this.dbUrl}/animals`);
-
+  getAll<T>(queryString:string):Observable<T[]> {
+    return this.http.get<T[]>(`${this.dbUrl}/${queryString}`);
   }
 
+  getById<T>(queryString:string, id:number):Observable<T> {
+    return this.http.get<T>(`${this.dbUrl}/${queryString}/${id}`);
+  }
   
+  post<T>(queryString:string, body:T):Observable<T[]> {
+    return this.http.post<T[]>(`${this.dbUrl}/${queryString}`, JSON.stringify(body));
+  }
+
+
 }
