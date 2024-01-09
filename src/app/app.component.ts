@@ -1,14 +1,29 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-
+import { AnimalListComponent } from './animal-list/animal-list.component';
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone:true,
+  template: `
+  <main>
+    <header class="brand-name">
+      <img class="brand-logo" src="/assets/logo.svg" alt="logo"/>
+      <div class="brand-title">Angular CRUD</div>
+    </header>
+
+    <section class="content">
+      <app-animal-list >
+
+      </app-animal-list>
+    </section>
+  </main>
+  `,
+  styleUrls: [
+    './app.component.css',
+  ],
+  imports: [AnimalListComponent],
 })
+
 export class AppComponent {
-  title = 'CRUD-Angular';
+  title = 'default';
+
 }
