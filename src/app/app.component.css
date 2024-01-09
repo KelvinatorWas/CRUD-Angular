@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,100;1,700;1,900&display=swap');
+.brand-name {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 4rem;
+  height: 4rem;
+}
+
+.brand-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}

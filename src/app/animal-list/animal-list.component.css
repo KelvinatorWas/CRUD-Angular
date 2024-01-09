@@ -1,0 +1,7 @@
+.animals {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 256px);
+  column-gap: 1rem;
+  row-gap: 1rem;
+}
