@@ -1,10 +1,10 @@
 
-export type speciesType = "Mammal" | "Bird" | "Fish" | "Reptile" | "Amphibian"
+export type speciesType = "Mammal" | "Bird" | "Fish" | "Reptile" | "Amphibian" | "Unknown"
 
 export interface Animal {
-  id:number,
+  id?:number,
   name:string,
   image:string,
   age:number,
-  species: string
+  species: speciesType
 }

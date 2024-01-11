@@ -1,0 +1,33 @@
+<article class="detail-view">
+  <section *ngIf="animalData" class="ui-container">
+    <app-image image={{animalData.image}}/>
+    
+    <h2 class="animal-name">{{animalData.name}}</h2>
+    <p class="animal-age">Age: {{animalData.age}}</p>
+    <p class="animal-species">Species: {{animalData.species}}</p>
+    
+    <div class="button-container">
+      <app-button
+        innerText="Edit" 
+        cssClass="green"
+        class="edit-btn"
+        (eventOnClick)="clickOnEdit()"
+      />
+      <app-button 
+        innerText="Delete"
+        (eventOnClick)="clickOnDelete()"
+        cssClass="red"
+      />
+    </div>
+    
+    <app-modal
+      [show]="showModal"
+      (eventOnClick)="clickOnDelete()"
+      (eventOnDelete)="onDelete()"
+    ></app-modal>
+  </section>
+</article>
+<h2 routerLink="/">Go Back</h2>
+<section *ngIf="!animalData" class="ui-container">
+  Loading...
+</section>

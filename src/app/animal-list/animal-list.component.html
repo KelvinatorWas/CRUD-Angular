@@ -1,0 +1,46 @@
+<section>
+  <app-button
+    (eventOnClick)="animalFormVisible()"
+    innerText="Add Animal Form"
+    cssClass="ui-select"
+    [activeStyle]="showAddAnimalForm ? 'ui-active' : ''"
+  />
+
+  <div class="editor"> 
+    <section class="animals">
+      <app-animal 
+        *ngFor="let anim of animalList"
+        [animal]="anim"
+      />
+    </section>
+
+    <section class="editor-form-section" *ngIf="showAddAnimalForm">
+      <form id="addAnimal" class="add-animal" [formGroup]="animalForm" (submit)="postAnimal()">
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="Name..." formControlName="name" required="true">
+
+        <label for="image">Image Name:</label>
+        <input id="image"type="text" placeholder="Image Name..." formControlName="image" required="true">
+
+        <label for="age">Age:</label>
+        <input id="age" type="text" placeholder="Age..." formControlName="age" required="true">
+
+        <label for="species">Species:</label>
+        <select id="species" formControlName="species" value="Unknown">
+          <option value="Unknown">Unknown</option>
+          <option value="Mammal">Mammal</option>
+          <option value="Bird">Bird</option>
+          <option value="Fish">Fish</option>
+          <option value="Reptile">Reptile</option>
+          <option value="Amphibian">Amphibian</option>
+        </select>
+
+        <app-button
+          type="submit"
+          innerText="Add Animal"
+          cssClass="green"
+        />
+      </form>
+    </section>
+  </div>
+</section>

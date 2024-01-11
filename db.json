@@ -1,25 +1,25 @@
 {
   "animals": [
     {
-      "id":0,
-      "name":"Dog",
-      "image":"https://www.randomlists.com/img/animals/dog.webp",
-      "age":2,
-      "species": "mammal"
+      "name": "Dog",
+      "image": "dog",
+      "age": 3,
+      "species": "Fish",
+      "id": 0
     },
     {
-      "id":1,
-      "name":"Cat",
-      "image":"https://www.randomlists.com/img/animals/cat.webp",
-      "age":3,
-      "species": "mammal"
+      "name": "Cat",
+      "image": "cat",
+      "age": 3,
+      "species": "Mammal",
+      "id": 1
     },
     {
-      "id":2,
-      "name":"Cow",
-      "image":"https://www.randomlists.com/img/animals/cow.webp",
-      "age":4,
-      "species": "mammal"
+      "name": "Puppy",
+      "image": "puppy",
+      "age": 12,
+      "species": "Amphibian",
+      "id": 3
     }
   ]
 }

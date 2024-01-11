@@ -1,0 +1,4 @@
+<section *ngIf="animal" class="animal">
+  <app-image image="{{animal.image}}"/>
+  <h2 class="animal-name" [routerLink]="['preview', animal.id]">{{animal.name}}</h2>
+</section>

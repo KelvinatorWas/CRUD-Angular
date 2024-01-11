@@ -1,0 +1,39 @@
+.detail-view {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.ui-container {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 2rem;
+}
+
+.edit-animal {
+  display: flex;
+  flex-direction: column;
+  row-gap: .5rem;
+}
+
+.button-container {
+  display: flex;
+  column-gap: 2rem;
+  justify-content:space-between;
+}
+
+.input-bar {
+  border: 1px solid black;
+  padding: 4px 6px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.custom-slr {
+  border: 1px solid black;
+  padding: 4px 6px;
+  background-color: aliceblue;
+  border-radius: 5px;
+  font-weight: bold;
+}

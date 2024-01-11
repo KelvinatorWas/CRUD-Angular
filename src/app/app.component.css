@@ -1,16 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,900;1,100;1,700;1,900&display=swap');
+
 .brand-name {
   display: flex;
   align-items: center;
+  user-select: none;
+  border-bottom: 2px solid;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+
 }
 
 .brand-logo {
   width: 4rem;
   height: 4rem;
+  cursor: pointer;
 }
 
 .brand-title {
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
   font-weight: bold;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  font-family: "Roboto", sans-serif;
+  padding: 32px;
 }
