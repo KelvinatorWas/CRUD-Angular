@@ -1,0 +1,11 @@
+<div [ngClass]="{'modal': show, 'close_modal': !show}">
+  <div class="modal-content">
+    <button class="close" (click)="onClickBtn()">✖</button>
+    <p class="info-bold">Are you sure you?</p>
+    <p>There is no undo button, what is lost is lost!</p>
+    <div class="button-container">
+      <app-button innerText="Delete" cssClass="red" (eventOnClick)="onClickDeleteBtn()" />
+      <app-button innerText="Cancel" cssClass="green" (eventOnClick)="onClickBtn()" class="button-delete"/>
+    </div>
+  </div>
+</div>

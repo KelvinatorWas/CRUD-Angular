@@ -1,0 +1,70 @@
+<article class="detail-view">
+  <section class="ui-container">
+    <form id="editAnimal" class="edit-animal" [formGroup]="animalForm">
+      <label for="name">Name:</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Name..."
+        formControlName="name"
+        class="input-bar"
+      >
+
+      <label for="image">Image Name:</label>
+      <input
+        id="image"
+        type="text"
+        placeholder="Image Name..."
+        formControlName="image"
+        class="input-bar"
+      >
+
+      <label for="age">Age:</label>
+      <input
+        id="age"
+        type="text"
+        placeholder="Age..."
+        formControlName="age"
+        class="input-bar"
+      >
+
+      <label for="species">Species:</label>
+      <select
+        id="species"
+        formControlName="species"
+        value="Unknown"
+        class="custom-slr"
+      >
+        <option value="Unknown">Unknown</option>
+        <option value="Mammal">Mammal</option>
+        <option value="Bird">Bird</option>
+        <option value="Fish">Fish</option>
+        <option value="Reptile">Reptile</option>
+        <option value="Amphibian">Amphibian</option>
+      </select>
+
+          
+    <div class="button-container">
+      <app-button 
+        innerText="Save"
+        (eventOnClick)="clickOnSave()"
+        cssClass="green"
+      />
+      <app-button
+        innerText="Cancel" 
+        cssClass="red"
+        class="edit-btn"
+        (eventOnClick)="clickOnCancel()"
+      />
+    </div>
+    
+    <app-modal-edit
+    [show]="showModal"
+    (eventOnClick)="clickOnSave()"
+    (eventOnSave)="onSave()"
+    ></app-modal-edit>
+      
+
+    </form>
+  </section>
+</article>

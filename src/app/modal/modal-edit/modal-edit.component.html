@@ -1,0 +1,20 @@
+<div [ngClass]="{'modal': show, 'close_modal': !show}">
+  <div class="modal-content">
+    <button class="close" (click)="onClickBtn()">✖</button>
+    <p class="info-bold">Are you sure you?</p>
+    <p>This will replace old data, are you sure you want to do this?</p>
+    <div class="button-container">
+      <app-button
+        innerText="Save" cssClass="green"
+        (eventOnClick)="onClickSaveBtn()"
+      />
+
+      <app-button
+        innerText="Cancel"
+        cssClass="red"
+        (eventOnClick)="onClickBtn()"
+        class="button-cancel"
+      />
+    </div>
+  </div>
+</div>

@@ -1,17 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Animal } from '../animal';
+import { RouterModule } from '@angular/router';
+import { ImageComponent } from '../image/image.component';
 
 @Component({
   selector: 'app-animal',
   standalone: true,
-  imports: [CommonModule],
-  template: `
-    <section *ngIf="animal" class="animal">
-      <img class="animal-image" alt="Image of {{animal.name}}" [src]="animal.image">
-      <h2 class="animal-name">{{animal.name}}</h2>
-    </section> 
-  `,
+  imports: [CommonModule, RouterModule, ImageComponent],
+  templateUrl: './animal.component.html',
   styleUrl: './animal.component.css'
 })
 export class AnimalComponent {

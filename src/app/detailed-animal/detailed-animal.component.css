@@ -1,0 +1,29 @@
+
+
+.detail-view {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.ui-container {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 2rem;
+}
+
+.button-container {
+  display: flex;
+  column-gap: 2rem;
+  justify-content:space-between;
+}
+
+.animal-image {
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  user-select: none;
+}

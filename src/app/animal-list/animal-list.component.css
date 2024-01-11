@@ -1,22 +1,23 @@
 .animals {
   margin: 1rem;
   display: grid;
-  grid-template-columns: repeat(4, 256px);
+  grid-template-columns: repeat(3, 256px);
   column-gap: 1rem;
   row-gap: 1rem;
 }
 
 .editor {
-  margin-top: 1rem;
   display: flex;
-  border: 2px solid gray;
+  border: 1px solid black;
   border-radius: 5px;
   flex-direction: row;
+  width: fit-content;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .editor-form-section {
   display: flex;
-  border-left: 2px solid gray;
+  border-left: 1px solid black;
   flex: 1;
   padding: 1em;
 }
@@ -25,4 +26,32 @@
   display: flex;
   flex-direction: column;
   row-gap: .5rem;
+}
+
+@media screen and (max-width: 820px) {
+  .animals {
+    grid-template-columns: repeat(2, 256px);
+  }
+
+  .editor {
+    flex-direction: column; 
+    .editor-form-section {
+      border: none;
+      border-top: 1px solid black;
+    }   
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .animals {
+    grid-template-columns: repeat(1, 256px);
+  }
+
+  .editor {
+    flex-direction: column; 
+    .editor-form-section {
+      border: none;
+      border-top: 1px solid black;
+    }   
+  }
 }
