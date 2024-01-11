@@ -8,14 +8,17 @@ import { Animal } from '../animal';
 })
 export class DataService {
   private dbUrl = "http://localhost:3004"; // link to the database
-  
   allAnimals:Animal[] = [];
 
   constructor(private http:HttpClient) {}
 
   // Animal Specific Service Functions
   getAllAnimals () {
-    
+    this.get<Animal>("animals").subscribe(
+      data => {this.allAnimals = []; this.allAnimals = data},
+      error => {throw error},
+      () => console.log("Fetched Data")
+    );
     return this.allAnimals;
   }
 
@@ -33,7 +36,7 @@ export class DataService {
   }
 
   deleteById(queryString:string, id:number) {
-    this.http.delete(`${this.dbUrl}/${queryString}/${id}`).subscribe((data) => {console.log("Deleted:", data)});
+    return this.http.delete(`${this.dbUrl}/${queryString}/${id}`);
   }
   
   post<T>(queryString:string, body:T):Observable<T> {

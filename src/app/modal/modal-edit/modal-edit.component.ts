@@ -22,6 +22,4 @@ export class ModalEditComponent {
     this.eventOnSave.emit();
     this.show = !this.show;
   }
-
-  
 }

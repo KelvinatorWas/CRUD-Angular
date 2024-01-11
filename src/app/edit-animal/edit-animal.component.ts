@@ -18,55 +18,70 @@ export class EditAnimalComponent {
   private router = new Router();
   route: ActivatedRoute = inject(ActivatedRoute);
   animalService:DataService = inject(DataService);
+
   animalData:Animal | undefined;
-
+  animalId = -1;
   showModal = false; // show pop up 
-
-
   animalForm = new FormGroup( {
-    name: new FormControl(''),
-    image: new FormControl(''),
-    age: new FormControl(''),
-    species: new FormControl<speciesType>('Unknown'),
-  });
-
+      name: new FormControl(''),
+      image: new FormControl(''),
+      age: new FormControl(''),
+      species: new FormControl<speciesType>('Unknown'),
+    }
+  );
+  
   constructor() {
-    this.animalData = this.router.getCurrentNavigation()?.extras.state as Animal;
-    this.setFormData();
+    this.getAnimal();
+  }
+
+  private toggleShow() {
+    this.showModal = !this.showModal;
+  }
+
+  private getAnimal() {
+    this.animalId = Number(this.route.snapshot.params['id']);
+    this.animalService.getById<Animal>("animals", this.animalId).subscribe(
+      data => {
+        this.animalData = data;
+        this.setFormData();
+      },
+      error => {
+        if(error.status === 404) this.router.navigate(["not-found"])
+      }
+    );
   }
 
   protected setFormData () {
     if (!this.animalData) return;
-    const {name, image, age, species} = this.animalData
+    const {name, image, age, species} = this.animalData;
     this.animalForm.setValue({name, image, age:`${age}`, species});
   }
 
   protected clickOnSave() {
-    this.showModal = !this.showModal;
+    this.toggleShow();
   }
   
-  clickOnCancel () {
+  protected clickOnCancel () {
     if (!this.animalData) return;
     this.router.navigate([`/preview/${this.animalData.id}`]);
   }
 
   protected onSave() {
     if (!this.animalData) return;
-    this.showModal = !this.showModal;
+
+    this.toggleShow();
     this.updateAnimal();
-    this.router.navigate([`/preview/${this.animalData.id}`]);
   }
 
-  private updateAnimal() {
+  protected updateAnimal() {
     const {name, image, species, age} = this.animalForm.value;
-    if (!name || !image || !species || !age || !this.animalData) return;
+    if (!name || !image || !species || !age) return;
 
     const animalAge = +age;
     const animalImgae = image.toLowerCase();
 
-    this.animalService.put<Animal>(`animals/${this.animalData.id}`, { name:name, image:animalImgae, age:animalAge, species:species}).subscribe(
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      (_) => { console.log("update animal") },
+    this.animalService.put<Animal>(`animals/${this.animalId}`, { name:name, image:animalImgae, age:animalAge, species:species}).subscribe(
+      () => { console.log("update animal"); this.router.navigate([`/preview/${this.animalId}`]); },
     );
   }
 }

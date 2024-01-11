@@ -28,25 +28,37 @@ export class AnimalListComponent implements OnInit{
   });
 
   ngOnInit () {
-    this.getAllAnimals();
-  }
-
-  constructor () {
-    this.getAllAnimals();
+    this.getAllAnimals()
   }
 
   protected animalFormVisible = () => this.showAddAnimalForm = !this.showAddAnimalForm;
 
-  private getAllAnimals() {
+  protected getAllAnimals() {
     this.animalService.get<Animal>(this.queryString).subscribe(
-      data => {this.animalList = data},
+      data => {this.animalList = []; this.animalList = data},
       error => {throw error},
       () => console.log("Fetched Data")
     );
+
+  }
+
+  private validator() {
+    const notValid = (str:string | null | undefined) => {
+      return !str;
+    }
+
+    const {name, image, age} = this.animalForm.value;
+
+    if (notValid(name)) {alert("Name is Empty"); return;}
+    if (notValid(image)) {alert("Image is Empty"); return;}
+    if (notValid(age)) {alert("Age is Empty"); return;}
+
   }
 
   protected postAnimal() {
     const {name, image, species, age} = this.animalForm.value;
+    this.validator()
+    
     if (!name || !image || !species || !age) return;
 
     const animalAge = +age;
@@ -55,5 +67,6 @@ export class AnimalListComponent implements OnInit{
     this.animalService.post<Animal>(this.queryString, { name:name, image:animalImgae, age:animalAge, species:species}).subscribe(
       (data) => {this.animalForm.reset(); this.animalList.push(data);},
     );
+    this.getAllAnimals();
   }
 }

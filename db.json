@@ -3,29 +3,22 @@
     {
       "name": "Dog",
       "image": "dog",
-      "age": 2,
-      "species": "Mammal",
+      "age": 3,
+      "species": "Fish",
       "id": 0
     },
     {
       "name": "Cat",
       "image": "cat",
       "age": 3,
-      "species": "Fish",
-      "id": 1
-    },
-    {
-      "name": "Cow",
-      "image": "cow",
-      "age": 4,
       "species": "Mammal",
-      "id": 2
+      "id": 1
     },
     {
       "name": "Puppy",
       "image": "puppy",
       "age": 12,
-      "species": "Mammal",
+      "species": "Amphibian",
       "id": 3
     }
   ]
